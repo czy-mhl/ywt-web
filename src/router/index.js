@@ -41,6 +41,10 @@ export const constantRouterMap = [
     path: '/test',
     component: () => import('@/views/error/404'),
   },
+  {
+    path: '/user/bind',
+    component: () => import('@/views/main/user/UserBind'),
+  },
 ];
 
 // 异步挂载的路由

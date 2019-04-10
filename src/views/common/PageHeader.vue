@@ -1,7 +1,9 @@
 <!--业务页面头部公共组件-->
 <template>
   <div class="headerCont">
-    <i v-if="showBack" class="el-icon-back"></i>
+    <span class="back" @click="goBack">
+      <i v-if="showBack" class="el-icon-back"></i>
+    </span>
     <img v-if="img !== ''" :src="img" alt="" />{{ title }}
   </div>
 </template>
@@ -15,7 +17,7 @@ export default {
 
     }
   },
-  prop: {
+  props: {
     title: {
       type: String,
       default: ''
@@ -28,14 +30,18 @@ export default {
       type: Boolean,
       default: true
     }
+  },
+  methods: {
+    goBack() {
+      history.go(-1)
+    }
   }
-
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 @import "src/styles/mixin.scss";
-.headerCont{
+.headerCont {
   width: 100%;
   height: 30px;
   display: flex;
@@ -43,7 +49,11 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #F0F2F7 !important;
-  position: fixed;
+  position: relative;
   top: 0;
+}
+.back {
+  position: fixed;
+  left: 5px
 }
 </style>
