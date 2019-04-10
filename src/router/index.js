@@ -42,6 +42,10 @@ export const constantRouterMap = [
     component: () => import('@/views/error/404'),
   },
   {
+    path: '/waterbill',
+    component: () => import('@/views/main/business/WaterBill'),
+  },
+  {
     path: '/user/bind',
     component: () => import('@/views/main/user/UserBind'),
   },
