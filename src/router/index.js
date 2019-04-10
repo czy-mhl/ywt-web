@@ -27,7 +27,6 @@ export const constantRouterMap = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    hidden: true,
     children: [{
       path: '/dashboard',
       name: 'Dashboard',
@@ -37,7 +36,10 @@ export const constantRouterMap = [
   {
     path: '/404',
     component: () => import('@/views/error/404'),
-    hidden: true
+  },
+  {
+    path: '/test',
+    component: () => import('@/views/error/404'),
   },
 ];
 
