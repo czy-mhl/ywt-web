@@ -1,7 +1,9 @@
 <template>
   <div>
-    <div style="padding-bottom: 60%;  margin:0px;width:100%; background: url('../../../static/images/index_head_unlogin.png') no-repeat;background-size: 100% 100%">
-      <div style="position: absolute; bottom: 20px;  left: 32%;  background: transparent;  width: 36%;  z-index: 999;cursor: pointer;  height: 37px;"></div>
+    <div class="bg">
+      <span class="userInfo">
+        <span class="text">欢迎：130****3351</span><i class="el-icon-setting"></i>
+      </span>
     </div>
 
     <div style="position: relative;padding: 8px;display: flex; align-items: center;z-index: 100;border-bottom: 1px solid #dcdcdc;background-color:transparent;width: 100%;">
@@ -66,6 +68,24 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+  .bg {
+    padding-bottom: 60%;
+    margin:0;
+    width:100%;
+    background: url('../../../static/images/index_head_unlogin.png')
+    no-repeat;
+    background-size: 100% 100%
+  }
+  .userInfo {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    font-size: small;
+    color: whitesmoke;
+    .text {
+      margin-right: 5px;
+    }
+  }
   .dashboard-editor-container {
     min-height: 60vh;
     padding: 20px 20px 0px;

@@ -5,10 +5,38 @@ import 'nprogress/nprogress.css'// Progress 进度条样式
 import { Message } from 'element-ui'
 import { getToken } from '@/utils/auth' // 验权
 
-const whiteList = ['/login', '/register', '/recover']; // 不重定向白名单
+const whiteList = []; // 不重定向白名单
+//
+const getFlagJudge = function(to, next, flag) {
+  if (to.matched.some(record => record.meta.register)) {
+    if (!flag.isRegister) {
+      console.log('未注册');
+    }
+  } else if (to.matched.some(record => record.meta.bind)) {
+    if (!flag.isBind) {
+      console.log('未绑定');
+      next('/user/bind')
+    }
+  } else {
+    next()
+  }
+}
+
 router.beforeEach((to, from, next) => {
   NProgress.start();
-  next()
+  if (whiteList.indexOf(to.path) !== -1) {
+    next()
+  } else {
+    const flag = store.getters.flag
+    console.log(Object.keys(flag).length);
+    if (Object.keys(flag).length === 0) {
+      store.dispatch('Login').then(() => {
+        getFlagJudge(to, next, flag)
+      })
+    } else {
+      getFlagJudge(to, next, flag)
+    }
+  }
   /*if (getToken()) {
     if (to.path === '/login') {
       next('/')

@@ -49,6 +49,10 @@ export const constantRouterMap = [
     path: '/user/bind',
     component: () => import('@/views/main/user/UserBind'),
   },
+  {
+    path: '/user/setting',
+    component: () => import('@/views/main/user/UserSetting'),
+  },
 ];
 
 // 异步挂载的路由

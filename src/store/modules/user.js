@@ -1,38 +1,32 @@
 import { login, logout, getInfo, getInfoUpdate } from '@/api/login'
-import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const user = {
   state: {
-    token: getToken(),
-    name: '',
-    avatar: '',
-    roles: [],
-    purviews: []
+    flag: {}
   },
 
   mutations: {
-    SET_TOKEN: (state, token) => {
-      state.token = token
-    },
-    SET_NAME: (state, name) => {
-      state.name = name
-    },
-    SET_AVATAR: (state, avatar) => {
-      state.avatar = avatar
-    },
-    SET_ROLES: (state, roles) => {
-      state.roles = roles
-    },
-    SET_PURVIEWS: (state, purviews) => {
-      state.purviews = purviews
-    },
+    SET_FLAG: (state, data) => {
+      state.flag = {
+        isRegister: data.register,
+        isBind: data.bind
+      }
+    }
   },
 
   actions: {
     // 登录
-    Login({ commit }, userInfo) {
-      const username = userInfo.username.trim();
+    Login({ commit }, state) {
       return new Promise((resolve, reject) => {
+        const data = {
+          register: true,
+          bind: false
+        }
+        commit('SET_FLAG', data)
+        resolve()
+      })
+
+      /*return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
           if (response.code !== 200) {
             resolve(response)
@@ -45,7 +39,7 @@ const user = {
         }).catch(error => {
           reject(error)
         })
-      })
+      })*/
     },
     // 获取用户信息
     GetInfo({ commit, state }) {
@@ -59,27 +53,6 @@ const user = {
         })
       })
     },
-
-    // 登出
-    LogOut({ commit, state }) {
-      commit('SET_TOKEN', '')
-      commit('SET_ROLES', [])
-      commit('SET_NAME', '')
-      commit('SET_AVATAR', '')
-      removeToken()
-    },
-
-    // 前端 登出
-    FedLogOut({ commit }) {
-      return new Promise(resolve => {
-        commit('SET_TOKEN', '')
-        commit('SET_PURVIEWS', [])
-        commit('SET_NAME', '')
-        commit('SET_AVATAR', '')
-        removeToken()
-        resolve()
-      })
-    }
   }
 }
 
