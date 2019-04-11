@@ -35,35 +35,35 @@ export const constantRouterMap = [
   },
   {
     path: '/404',
-    component: () => import('@/views/error/404'),
+    component: () => import('@/views/error/404')
   },
   {
     path: '/test',
-    component: () => import('@/views/error/404'),
+    component: () => import('@/views/error/404')
   },
   {
     path: '/water/bill',
-    component: () => import('@/views/main/business/WaterBill'),
+    component: () => import('@/views/main/business/WaterBill')
   },
   {
     path: '/user/bind',
     name: 'UserBind',
-    component: () => import('@/views/main/user/UserBind'),
+    component: () => import('@/views/main/user/UserBind')
   },
   {
     path: '/user/setting',
     name: 'UserSetting',
-    component: () => import('@/views/main/user/UserSetting'),
+    component: () => import('@/views/main/user/UserSetting')
   },
   {
     path: '/user/login',
     name: 'UserLogin',
-    component: () => import('@/views/main/user/UserLogin'),
+    component: () => import('@/views/main/user/UserLogin')
   },
   {
     path: '/user/reset',
     name: 'UserPwdReset',
-    component: () => import('@/views/main/user/UserPwdReset'),
+    component: () => import('@/views/main/user/UserPwdReset')
   },
   {
     path: '/user/register',
@@ -72,20 +72,19 @@ export const constantRouterMap = [
   },
   {
     path: '/water/detaild',
-    component: () => import('@/views/main/business/billdetails/WaterDetaild'),
+    component: () => import('@/views/main/business/billdetails/WaterDetaild')
   },
   {
     path: '/bill/detaild',
-    component: () => import('@/views/main/business/billdetails/BillDetails'),
-  },
-];
+    component: () => import('@/views/main/business/billdetails/BillDetails')
+  }
+]
 
 // 异步挂载的路由
 // 动态需要根据权限加载的路由表
 export const asyncRouterMap = [
 
-];
-
+]
 
 export const endRouterMap = [
   {
@@ -93,7 +92,7 @@ export const endRouterMap = [
     redirect: '/404',
     hidden: true
   }
-];
+]
 
 export default new Router({
   routes: constantRouterMap

@@ -32,7 +32,7 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App },
+  components: { App }
   // data: {
   //   eventHub: new Vue() // 给data添加一个 名字为eventHub 的空vue实例,用来传输非父子组件的数据
   // }
