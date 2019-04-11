@@ -42,7 +42,7 @@ export const constantRouterMap = [
     component: () => import('@/views/error/404'),
   },
   {
-    path: '/waterbill',
+    path: '/water/bill',
     component: () => import('@/views/main/business/WaterBill'),
   },
   {
@@ -68,7 +68,11 @@ export const constantRouterMap = [
   {
     path: '/user/register',
     name: 'UserRegister',
-    component: () => import('@/views/main/user/UserRegister'),
+    component: () => import('@/views/main/user/UserRegister')
+  },
+  {
+    path: '/water/detaild',
+    component: () => import('@/views/main/business/billdetails/WaterDetaild'),
   },
 ];
 
