@@ -33,6 +33,7 @@
 import PageHeader from '@/views/common/PageHeader'
 import Copyright from '@/views/common/Copyright'
 import { checkPhone, checkCode, checkPwd } from '@/utils/validate'
+import { userRegister } from '@/api/user'
 export default {
   name: 'UserRegister',
   data() {
@@ -80,7 +81,9 @@ export default {
   },
   methods: {
     submitForm() {
-
+      userRegister(this.register).then(resp => {
+        console.log(resp);
+      })
     },
     resetForm() {
 
