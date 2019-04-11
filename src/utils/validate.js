@@ -1,7 +1,3 @@
-/**
- * Created by jiachenpan on 16/11/18.
- */
-
 export function isvalidUsername(str) {
   const valid_map = ['admin', 'editor']
   return valid_map.indexOf(str.trim()) >= 0
@@ -57,3 +53,22 @@ export function validatPhone(tel) {
   }
   return rtn
 }
+
+export const checkPhone = (rule, value, callback) => {
+  if (value === '') {
+    callback(new Error('请输入手机号'))
+  } else if (value.length !== 11) {
+    callback(new Error('请输入正确的手机号'))
+  } else {
+    callback()
+  }
+}
+
+export const checkCode = (rule, value, callback) => {
+  value === '' ? callback(new Error('请输入验证码')) : callback()
+}
+
+export const checkPwd = (rule, value, callback) => {
+  value === '' ? callback(new Error('请输入密码')) : callback()
+}
+
