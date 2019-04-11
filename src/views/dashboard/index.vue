@@ -1,11 +1,9 @@
 <template>
   <div>
-    <div class="bg">
-      <span class="userInfo">
-        <span class="text">欢迎：130****3351</span><i class="el-icon-setting"></i>
-      </span>
+    <div class="bg" @click="goUser"></div>
+    <div class="userInfo" @click="goUserSetting">
+      <span class="text">欢迎：130****3351</span><i class="el-icon-setting"></i>
     </div>
-
     <div style="position: relative;padding: 8px;display: flex; align-items: center;z-index: 100;border-bottom: 1px solid #dcdcdc;background-color:transparent;width: 100%;">
       <i class="report" style="position: absolute;top: 10px;left: 10px;background-color: transparent;"></i>
       <div style="margin-left: 30px;width: 100%;white-space: nowrap;word-break: break-all">
@@ -59,11 +57,17 @@
     data() {
       return {}
     },
-
     created() {
 
     },
-    methods: {}
+    methods: {
+      goUserSetting() {
+        this.$router.push({name: 'UserSetting'})
+      },
+      goUser() {
+        this.$router.push({name: 'UserLogin'})
+      }
+    }
   }
 </script>
 

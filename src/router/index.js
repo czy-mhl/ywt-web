@@ -47,11 +47,28 @@ export const constantRouterMap = [
   },
   {
     path: '/user/bind',
+    name: 'UserBind',
     component: () => import('@/views/main/user/UserBind'),
   },
   {
     path: '/user/setting',
+    name: 'UserSetting',
     component: () => import('@/views/main/user/UserSetting'),
+  },
+  {
+    path: '/user/login',
+    name: 'UserLogin',
+    component: () => import('@/views/main/user/UserLogin'),
+  },
+  {
+    path: '/user/reset',
+    name: 'UserPwdReset',
+    component: () => import('@/views/main/user/UserPwdReset'),
+  },
+  {
+    path: '/user/register',
+    name: 'UserRegister',
+    component: () => import('@/views/main/user/UserRegister'),
   },
 ];
 
