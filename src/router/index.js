@@ -74,6 +74,10 @@ export const constantRouterMap = [
     path: '/water/detaild',
     component: () => import('@/views/main/business/billdetails/WaterDetaild'),
   },
+  {
+    path: '/bill/detaild',
+    component: () => import('@/views/main/business/billdetails/BillDetails'),
+  },
 ];
 
 // 异步挂载的路由

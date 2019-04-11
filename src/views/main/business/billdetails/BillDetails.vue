@@ -1,0 +1,156 @@
+<template>
+  <div>
+    <page-header :title="header.title"></page-header>
+
+    <table class="dashed" style="width: 330px;margin: auto">
+        <tr>
+          <td>户号</td>
+          <td>1800908647</td>
+        </tr>
+        <tr>
+          <td>账单月份</td>
+          <td>201904</td></tr>
+      <tr>
+        <td>上次抄表</td>
+        <td>2019.03.01</td></tr>
+      <tr>
+        <td>本次抄表</td>
+        <td>2019.04.03</td></tr>
+      <tr>
+        <td>上次到度</td>
+        <td></td></tr>
+      <tr>
+        <td>本次到度</td>
+        <td></td></tr>
+      <tr>
+        <td>抄表情况</td>
+        <td></td></tr>
+      <tr>
+        <td>用水量</td>
+        <td></td></tr>
+      <tr>
+        <td>自来水费</td>
+        <td></td></tr>
+      <tr>
+        <td>污水费</td>
+        <td></td></tr>
+      <tr>
+        <td>垃圾费</td>
+        <td></td></tr>
+      <tr>
+        <td>违约金</td>
+        <td>0.00元(截至今日)</td></tr>
+    </table>
+
+    <div style="width: 100%;height: 60px;background-color: dodgerblue;position: fixed;bottom: 30px">
+      <div>
+        <i class="el-icon-menu" style="margin-left: 30px;margin-top: 10px">
+        </i>
+        <i class="el-icon-menu" style="margin-left: 100px;margin-top: 10px">
+        </i>
+        <i class="el-icon-menu" style="margin-left: 100px;margin-top: 10px">
+        </i>
+      </div>
+
+      <div style="margin-left: 11px">
+        <div style="display: inline">
+        <font size="2">水费明细</font>
+        </div>
+        <div style="display: inline;margin-left: 60px">
+          <font size="2">污水费明细</font>
+        </div>
+        <div style="display: inline;margin-left: 52px">
+          <font size="2">垃圾费明细</font>
+        </div>
+      </div>
+    </div>
+
+
+
+    <copyright></copyright>
+  </div>
+</template>
+
+<script>
+  import PageHeader from '@/views/common/PageHeader'
+  import Copyright from '@/views/common/Copyright'
+
+  export default {
+    name: 'BillDetaild',
+    data() {
+      return {
+        labelPosition: 'top',
+        header: {
+          title: '账单明细',
+          img: ''
+        }
+      }
+    },
+    components: {
+      PageHeader,
+      Copyright
+    },
+    methods: {
+      inviteClick() {
+        this.isInvite = true
+      },
+      submitForm() {
+
+      },
+      resetForm() {
+
+      }
+    }
+  }
+</script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+
+  .divOuterLayer {
+    position: relative;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 1px solid #dcdcdc;
+    background-color: transparent;
+    width: 100%;
+  }
+
+  .divInnerLayer {
+    margin-left: 30px;
+    width: 100%;
+    white-space: nowrap;
+    word-break: break-all;
+  }
+
+  .dashed {
+    border-width: 2px;
+    border-style: dashed;
+    border-color: rgb(238, 238, 238);
+    border-image: initial;
+  }
+
+  .table1 {
+    border-collapse: collapse;
+  }
+
+  .span1 {
+    font-size: small;
+    color: aliceblue;
+    padding-top: 10px;
+    padding-left: 22px;
+  }
+  .span2{
+    font-size: small;
+    color: black;
+    padding-top: 30px;
+    padding-left: 10px;
+  }
+
+  td{
+    padding-left: 20px;
+    padding-top: 18px;
+  }
+</style>
+
