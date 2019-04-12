@@ -1,15 +1,10 @@
 <!--业务页面头部公共组件-->
 <template>
   <div class="headerCont">
-    <span class="back" @click="goBack">
-      <i v-if="showBack" class="el-icon-back"></i>
-    </span>
-    <span class="center">
-      <img v-if="img !== ''" :src="img" alt="" />{{ title }}
-    </span>
-    <span v-if="rightLink" class="right" @click="goRightLink">
-      {{ rightLink.text }}
-    </span>
+    <mt-header fixed :title="header.title">
+      <mt-button v-if="showBack" icon="back" slot="left" @click="goBack"></mt-button>
+      <mt-button slot="right" v-if="header.link" @click="goRightLink">{{ header.link.text }}</mt-button>
+    </mt-header>
   </div>
 </template>
 
@@ -23,55 +18,28 @@ export default {
     }
   },
   props: {
-    title: {
-      type: String,
-      default: ''
-    },
-    img: {
-      type: String,
-      default: ''
+    header: {
+      type: Object,
+      default: function () {
+
+      }
     },
     showBack: {
       type: Boolean,
       default: true
     },
-    rightLink: {
-      type: Object,
-      default: function () {
-
-      }
-    }
   },
   methods: {
     goBack() {
       history.go(-1)
     },
     goRightLink() {
-      this.$router.push({name: this.rightLink.name})
+      this.$router.push({name: this.header.link.name})
     }
   }
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import "src/styles/mixin.scss";
-  .headerCont {
-    width: 100%;
-    height: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: #F0F2F7 !important;
-    position: relative;
-    top: 0;
-  }
-  .back {
-    position: fixed;
-    left: 5px
-  }
-  .right {
-    position: fixed;
-    right: 15px;
-  }
+
 </style>

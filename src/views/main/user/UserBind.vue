@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-header :title="header.title"></page-header>
+    <page-header :header="header"></page-header>
 
     <div class="form">
       <el-form :label-position="labelPosition" :model="user">
@@ -25,6 +25,17 @@
           &nbsp;&nbsp;&nbsp;&nbsp;如有疑问，请拨打96106进行咨询。
         </div>
       </el-form>
+    </div>
+
+    <div class="form">
+      <mt-field label="户号：" placeholder="请输入手机号码" v-model="reset.phone"></mt-field>
+      <mt-field label="户名：" placeholder="请输入验证码" v-model="reset.code"></mt-field>
+      <mt-field label="新密码：" type="password" placeholder="请输入密码" v-model="reset.pwd"></mt-field>
+      <mt-field label="确认密码：" type="password" placeholder="请输入确认密码" v-model="reset.confirm"></mt-field>
+      <span class="btn">
+        <mt-button class="item" size="small" type="primary" @click="submitForm">绑定</mt-button>
+        <mt-button class="item" size="small" type="primary" @click="goback">取消</mt-button>
+      </span>
     </div>
 
     <copyright></copyright>

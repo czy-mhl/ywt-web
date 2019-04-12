@@ -1,28 +1,18 @@
 <template>
   <div>
-    <page-header :title="header.title"></page-header>
+    <page-header :header="header"></page-header>
 
     <div class="form">
-      <el-form :rules="rules" ref="register" status-icon :label-position="labelPosition" label-width="88px" :model="register">
-        <el-form-item label="手机号码：" prop="phone">
-          <el-input v-model="register.phone" placeholder="请输入手机号码"></el-input>
-        </el-form-item>
-        <el-form-item label="密码：" prop="pwd">
-          <el-input type="password" v-model="register.pwd" placeholder="请输入密码"></el-input>
-        </el-form-item>
-        <el-form-item label="确认密码：" prop="confirm">
-          <el-input type="password" v-model="register.confirm" placeholder="请输入确认密码"></el-input>
-        </el-form-item>
-        <el-form-item label="验证码：" prop="code">
-          <el-input style="width: 54%" v-model="register.code" placeholder="请输入验证码"></el-input>
-          <el-button type="primary" @click="submitForm">获取验证码</el-button>
-        </el-form-item>
-
-        <el-form-item>
-          <el-button type="primary" @click="submitForm">注册</el-button>
-          <el-button type="primary" @click="goback">返回</el-button>
-        </el-form-item>
-      </el-form>
+      <mt-field label="手机号码：" placeholder="请输入手机号码" v-model="register.phone"></mt-field>
+      <mt-field label="密码：" placeholder="请输入密码" v-model="register.pwd"></mt-field>
+      <mt-field label="确认密码：" type="password" placeholder="请输入确认密码" v-model="register.confirm"></mt-field>
+      <mt-field label="验证码：" type="password" placeholder="请输入验证码" v-model="register.code">
+        <mt-button style="margin-left: 10px" size="small" type="primary">获取验证码</mt-button>
+      </mt-field>
+      <span class="btn">
+        <mt-button class="item" size="small" type="primary" @click="submitForm">注册</mt-button>
+        <mt-button class="item" size="small" type="primary" @click="goback">返回</mt-button>
+      </span>
     </div>
 
     <copyright></copyright>
@@ -37,15 +27,6 @@ import { userRegister } from '@/api/user'
 export default {
   name: 'UserRegister',
   data() {
-    const checkConfirm = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入确认密码'))
-      } else if (value !== this.register.pwd) {
-        callback(new Error('两次输入密码不一致'))
-      } else {
-        callback()
-      }
-    }
     return {
       labelPosition: 'right',
       register: {
@@ -56,23 +37,8 @@ export default {
       },
       header: {
         title: '用户注册',
-        img: ''
       },
       codeLoginType: true,
-      rules: {
-        phone: [
-          { validator: checkPhone, trigger: 'blur' },
-        ],
-        code: [
-          { validator: checkCode, trigger: 'blur' },
-        ],
-        pwd: [
-          { validator: checkPwd, trigger: 'blur' },
-        ],
-        confirm: [
-          { validator: checkConfirm, trigger: 'blur' },
-        ]
-      }
     }
   },
   components: {
@@ -88,9 +54,6 @@ export default {
     resetForm() {
 
     },
-    typeRevert() {
-      this.codeLoginType = !this.codeLoginType
-    },
     goback() {
       history.go(-1)
     }
@@ -98,8 +61,18 @@ export default {
 }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-.form {
-  margin: 10% 10px 10px;
-}
+  .form {
+    margin: 14% 10px 10px;
+  }
+  .btn {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    .item {
+      margin-top: 6%;
+      width: 100px;
+    }
+  }
 </style>
 

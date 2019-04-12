@@ -2,8 +2,10 @@ import Vue from 'vue'
 
 import 'normalize.css/normalize.css'// A modern alternative to CSS resets
 
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// import ElementUI from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 import locale from 'element-ui/lib/locale/lang/zh-CN'
 
 import '@/styles/index.scss' // global css
@@ -23,7 +25,8 @@ Vue.prototype.$http = service
 
 Vue.prototype.$echarts = echarts
 
-Vue.use(ElementUI, { locale })
+// Vue.use(ElementUI, { locale })
+Vue.use(MintUI)
 
 Vue.config.productionTip = false
 
