@@ -3,43 +3,54 @@
     <page-header :title="header.title"></page-header>
 
     <table class="dashed" style="width: 330px;margin: auto">
-        <tr>
-          <td>户号</td>
-          <td>1800908647</td>
-        </tr>
-        <tr>
-          <td>账单月份</td>
-          <td>201904</td></tr>
+      <tr class="tr1">
+        <td>户号</td>
+        <td>1800908647</td>
+      </tr>
+      <tr>
+        <td>账单月份</td>
+        <td>201904</td>
+      </tr>
       <tr>
         <td>上次抄表</td>
-        <td>2019.03.01</td></tr>
+        <td>2019.03.01</td>
+      </tr>
       <tr>
         <td>本次抄表</td>
-        <td>2019.04.03</td></tr>
+        <td>2019.04.03</td>
+      </tr>
       <tr>
         <td>上次到度</td>
-        <td></td></tr>
+        <td>56723立方米</td>
+      </tr>
       <tr>
         <td>本次到度</td>
-        <td></td></tr>
+        <td>59186立方米</td>
+      </tr>
       <tr>
         <td>抄表情况</td>
-        <td></td></tr>
+        <td>正常</td>
+      </tr>
       <tr>
         <td>用水量</td>
-        <td></td></tr>
+        <td>2454立方米</td>
+      </tr>
       <tr>
         <td>自来水费</td>
-        <td></td></tr>
+        <td>10674.90元</td>
+      </tr>
       <tr>
         <td>污水费</td>
-        <td></td></tr>
+        <td>3067.50元</td>
+      </tr>
       <tr>
         <td>垃圾费</td>
-        <td></td></tr>
+        <td>666.00元</td>
+      </tr>
       <tr>
         <td>违约金</td>
-        <td>0.00元(截至今日)</td></tr>
+        <td>0.00元(截至今日)</td>
+      </tr>
     </table>
 
     <div style="width: 100%;height: 60px;background-color: dodgerblue;position: fixed;bottom: 30px">
@@ -54,7 +65,7 @@
 
       <div style="margin-left: 11px">
         <div style="display: inline">
-        <font size="2">水费明细</font>
+          <font size="2">水费明细</font>
         </div>
         <div style="display: inline;margin-left: 60px">
           <font size="2">污水费明细</font>
@@ -64,7 +75,6 @@
         </div>
       </div>
     </div>
-
 
 
     <copyright></copyright>
@@ -129,9 +139,6 @@
     border-style: dashed;
     border-color: rgb(238, 238, 238);
     border-image: initial;
-  }
-
-  .table1 {
     border-collapse: collapse;
   }
 
@@ -141,7 +148,8 @@
     padding-top: 10px;
     padding-left: 22px;
   }
-  .span2{
+
+  .span2 {
     font-size: small;
     color: black;
     padding-top: 30px;
@@ -149,8 +157,13 @@
   }
 
   td{
-    padding-left: 20px;
-    padding-top: 18px;
+    padding-top: 8px;
+    padding-left: 10px;
+  }
+  tr {
+    border-width: 2px;
+    border-style: dashed;
+    border-color: rgb(238, 238, 238);
   }
 </style>
 
