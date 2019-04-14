@@ -42,7 +42,8 @@ export const constantRouterMap = [
     component: () => import('@/views/error/404')
   },
   {
-    path: '/water/bill',
+    path: '/waterbill',
+    name: 'WaterBill',
     component: () => import('@/views/main/business/WaterBill')
   },
   {
@@ -71,12 +72,34 @@ export const constantRouterMap = [
     component: () => import('@/views/main/user/UserRegister')
   },
   {
-    path: '/water/detaild',
+    path: '/detaild/water',
+    name: 'WaterDetaild',
     component: () => import('@/views/main/business/billdetails/WaterDetaild')
   },
   {
-    path: '/bill/detaild',
+    path: '/detaild/bill',
+    name: 'BillDetaild',
     component: () => import('@/views/main/business/billdetails/BillDetails')
+  },
+  {
+    path: '/detaild/sewage',
+    name: 'SewageDetaild',
+    component: () => import('@/views/main/business/billdetails/SewageDetaild')
+  },
+  {
+    path: '/detaild/garbage',
+    name: 'GarbageDetaild',
+    component: () => import('@/views/main/business/billdetails/GarbageDetaild')
+  },
+  {
+    path: '/prepaid/userstore',
+    name: 'UserStoredInformation',
+    component: () => import('@/views/main/business/waterprepaid/UserStoredInformation')
+  },
+  {
+    path: '/prepaid/userbalance',
+    name: 'UserBalance',
+    component: () => import('@/views/main/business/waterprepaid/UserBalance')
   }
 ]
 

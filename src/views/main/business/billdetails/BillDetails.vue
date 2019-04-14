@@ -1,8 +1,8 @@
 <template>
   <div>
-    <page-header :title="header.title"></page-header>
+    <page-header :header="header"></page-header>
 
-    <table class="dashed" style="width: 330px;margin: auto">
+    <table class="dashed" style="width: 300px;margin: auto;margin-top: 50px">
       <tr class="tr1">
         <td>户号</td>
         <td>1800908647</td>
@@ -65,13 +65,13 @@
 
       <div style="margin-left: 11px">
         <div style="display: inline">
-          <font size="2">水费明细</font>
+          <font size="2" color="#faebd7" @click="goWaterDetaild">水费明细</font>
         </div>
         <div style="display: inline;margin-left: 60px">
-          <font size="2">污水费明细</font>
+          <font size="2" color="#faebd7" @click="goSewageDetaild">污水费明细</font>
         </div>
         <div style="display: inline;margin-left: 52px">
-          <font size="2">垃圾费明细</font>
+          <font size="2" color="#faebd7" @click="goGarbageDetaild">垃圾费明细</font>
         </div>
       </div>
     </div>
@@ -109,6 +109,15 @@
       },
       resetForm() {
 
+      },
+      goWaterDetaild() {
+        this.$router.push({name: 'WaterDetaild'})
+      },
+      goSewageDetaild() {
+        this.$router.push({name: 'SewageDetaild'})
+      },
+      goGarbageDetaild() {
+        this.$router.push({name: 'GarbageDetaild'})
       }
     }
   }
@@ -157,7 +166,7 @@
   }
 
   td{
-    padding-top: 8px;
+    padding-top: 12px;
     padding-left: 10px;
   }
   tr {

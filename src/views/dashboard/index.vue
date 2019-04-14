@@ -16,7 +16,7 @@
     <div  class="xttblog" style="width: 330px;">
       <ul class="box">
 
-        <li  style="min-width: 82.5px; max-width: 82.5px; min-height: 72.5px;"><a href="#" title="水费账单" class="ui-link"><img src="../../../static/images/sfzd.png">水费账单</a></li>
+        <li  style="min-width: 82.5px; max-width: 82.5px; min-height: 72.5px;"><a href="#" @click="goWaterBill" title="水费账单" class="ui-link"><img src="../../../static/images/sfzd.png">水费账单</a></li>
 
         <li  style="min-width: 82.5px; max-width: 82.5px; min-height: 72.5px;"><a href="#" title="水费预存" class="ui-link"><img src="../../../static/images/d3b28a4d9ea5465387afd85420ade086.png">水费预存</a></li>
 
@@ -66,6 +66,9 @@
       },
       goUser() {
         this.$router.push({name: 'UserLogin'})
+      },
+      goWaterBill() {
+        this.$router.push({name: 'WaterBill'})
       }
     }
   }

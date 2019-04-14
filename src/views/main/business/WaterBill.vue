@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-header :title="header.title"></page-header>
+    <page-header :header="header"></page-header>
 
     <div class="divOuterLayer">
       <div class="divInnerLayer">
@@ -9,7 +9,7 @@
         </font>
         <a href="#">
           <span>
-            <font size="2">账单详情</font>
+            <font size="2" @click="goBillDetaild">账单详情</font>
             <i class="el-icon-arrow-right"></i>
           </span>
         </a>
@@ -60,7 +60,7 @@
         </font>
         <a href="#">
           <span>
-            <font size="2">账单详情</font>
+            <font size="2" @click="goBillDetaild">账单详情</font>
             <i class="el-icon-arrow-right"></i>
           </span>
         </a>
@@ -105,8 +105,8 @@
     </div>
 
     <div style="margin-top: 10px">
-      <el-input placeholder="请输入查询账单月" style="width: 200px;margin-left: 30px"></el-input>
-      <el-button type="primary" icon="el-icon-search" style="font-size:15px">查询</el-button>
+      <input style="margin-left: 70px" type="text" placeholder="请输入查询账单月"></input>
+      <button class="mint-button mint-button--primary mint-button--small"><!----> <label class="mint-button-text">查询</label></button>
     </div>
     <div style="margin-left: 30px;margin-top: 10px">
       <font size="2">
@@ -149,29 +149,14 @@
       },
       resetForm() {
 
+      },
+      goBillDetaild() {
+        this.$router.push({name: 'BillDetaild'})
       }
     }
   }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .divOuterLayer {
-    position: relative;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    z-index: 100;
-    border-bottom: 1px solid #dcdcdc;
-    background-color: transparent;
-    width: 100%;
-  }
-
-  .divInnerLayer {
-    margin-left: 30px;
-    width: 100%;
-    white-space: nowrap;
-    word-break: break-all;
-  }
-
   a {
     color: #1e90ff;
     float: right;
@@ -187,6 +172,15 @@
     bottom: 0;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  .divOuterLayer{
+    border-bottom:1px solid #d3dce6;
+    margin: 50px;
+  }
+
+  .divInnerLayer{
+    margin-top: 10px;
+
   }
 </style>
 

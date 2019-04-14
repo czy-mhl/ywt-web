@@ -3,7 +3,7 @@
     <page-header :header="header"></page-header>
 
     <!-- 没有右边框 -->
-    <table class="dashed table1" style="width: 330px;height: 100px;margin: auto">
+    <table class="dashed table1" style="width: 330px;height: 100px;margin: auto;margin-top: 50px">
       <tr class="dashed">
         <td>
           <font size="2">账单月份</font>
@@ -44,7 +44,7 @@
           class="el-icon-document"
           style="margin-left: 30px;margin-top: 10px;color: #00bfff;font-size: 22px">
         </i>
-        <font size="2" style="color: #00bfff;margin-left: 5px">水费组成</font>
+        <font size="2" style="color: #00bfff;margin-left: 5px">污水费组成</font>
       </div>
     </div>
 
@@ -65,7 +65,21 @@
     </div>
       <div style="width: 320px;height: 40px;background-color: darkgrey;margin-top: 8px">
         <span class="span2">
-        工商用水&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        居民污水费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+      <span class="span2">
+        4.35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+      <span class="span2">
+        2454&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+      <span class="span2">
+        10674.90
+        </span>
+    </div>
+      <div style="width: 320px;height: 20px;background-color: dodgerblue;margin-top: 8px">
+        <span class="span2">
+        非居民污水费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </span>
         <span class="span2">
         4.35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -94,12 +108,12 @@
   import Copyright from '@/views/common/Copyright'
 
   export default {
-    name: 'WaterDetaild',
+    name: 'SewageDetaild',
     data() {
       return {
         labelPosition: 'top',
         header: {
-          title: '水费组成明细',
+          title: '污水费明细',
           img: ''
         }
       }
