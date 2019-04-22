@@ -5,11 +5,12 @@
     <div class="divOuterLayer">
       <div class="divInnerLayer">
         <font size="2" color="black">
-          201904
+          <!--{{userbill.billmouth}}-->
+          {{bills.billMonth}}
         </font>
         <a href="#">
           <span>
-            <font size="2" @click="goBillDetaild">账单详情</font>
+            <font size="2" @click="goBillDetaild(bills.billMonth)">账单详情</font>
             <i class="el-icon-arrow-right"></i>
           </span>
         </a>
@@ -23,7 +24,7 @@
           </font>
           <span style="float: right;" v-if="show">
             <font size="2" color="#a9a9a9">
-                  {{ msg }}
+                  {{msg}}
             </font>
           </span>
         </div>
@@ -41,7 +42,7 @@
 
         <div class="divSpan">
           <font size="2" color="#00bfff">
-            14000元
+            {{bills.mouthTotal}}
           </font>
           <span style="float: right;">
             <font size="2" color="#a9a9a9">
@@ -60,7 +61,7 @@
         </font>
         <a href="#">
           <span>
-            <font size="2" @click="goBillDetaild">账单详情</font>
+            <font size="2" @click="goBillDetaild(bills.billMonth)">账单详情</font>
             <i class="el-icon-arrow-right"></i>
           </span>
         </a>
@@ -122,6 +123,7 @@
 <script>
   import PageHeader from '@/views/common/PageHeader'
   import Copyright from '@/views/common/Copyright'
+  import { findBybillMonth } from '@/api/bill'
 
   export default {
     name: 'WaterBill',
@@ -133,7 +135,8 @@
         header: {
           title: '最近一年账单',
           img: ''
-        }
+        },
+        bills: this.$route.params
       }
     },
     components: {
@@ -150,8 +153,11 @@
       resetForm() {
 
       },
-      goBillDetaild() {
-        this.$router.push({name: 'BillDetaild'})
+      goBillDetaild(billMonth) {
+        console.log(this.bills.billMonth)
+        findBybillMonth(billMonth).then(resp => {
+          this.$router.push({ name: 'BillDetaild', params: resp.data })
+        })
       }
     }
   }

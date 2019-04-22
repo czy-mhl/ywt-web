@@ -9,47 +9,47 @@
       </tr>
       <tr>
         <td>账单月份</td>
-        <td>201904</td>
+        <td>{{bills.billMonth}}</td>
       </tr>
       <tr>
         <td>上次抄表</td>
-        <td>2019.03.01</td>
+        <td>{{bills.lastRead}}</td>
       </tr>
       <tr>
         <td>本次抄表</td>
-        <td>2019.04.03</td>
+        <td>{{bills.thisRead}}</td>
       </tr>
       <tr>
         <td>上次到度</td>
-        <td>56723立方米</td>
+        <td>{{bills.lastArrival}}立方米</td>
       </tr>
       <tr>
         <td>本次到度</td>
-        <td>59186立方米</td>
+        <td>{{bills.thisArrival}}立方米</td>
       </tr>
       <tr>
         <td>抄表情况</td>
-        <td>正常</td>
+        <td>{{bills.readSituation}}</td>
       </tr>
       <tr>
         <td>用水量</td>
-        <td>2454立方米</td>
+        <td>{{bills.waterConsumption}}立方米</td>
       </tr>
       <tr>
         <td>自来水费</td>
-        <td>10674.90元</td>
+        <td>{{bills.waterRates}}元</td>
       </tr>
       <tr>
         <td>污水费</td>
-        <td>3067.50元</td>
+        <td>{{bills.sewageCharge}}元</td>
       </tr>
       <tr>
         <td>垃圾费</td>
-        <td>666.00元</td>
+        <td>{{bills.garbageCharge}}元</td>
       </tr>
       <tr>
         <td>违约金</td>
-        <td>0.00元(截至今日)</td>
+        <td>{{bills.penalty}}(截至今日)</td>
       </tr>
     </table>
 
@@ -84,6 +84,7 @@
 <script>
   import PageHeader from '@/views/common/PageHeader'
   import Copyright from '@/views/common/Copyright'
+  import { findBybillMonth } from '@/api/bill'
 
   export default {
     name: 'BillDetaild',
@@ -93,12 +94,16 @@
         header: {
           title: '账单明细',
           img: ''
-        }
+        },
+        bills: this.$route.params
       }
     },
     components: {
       PageHeader,
       Copyright
+    },
+    created() {
+      findByBillMonth()
     },
     methods: {
       inviteClick() {
@@ -111,13 +116,19 @@
 
       },
       goWaterDetaild() {
-        this.$router.push({name: 'WaterDetaild'})
+        this.$router.push({ name: 'WaterDetaild' })
       },
       goSewageDetaild() {
-        this.$router.push({name: 'SewageDetaild'})
+        this.$router.push({ name: 'SewageDetaild' })
       },
       goGarbageDetaild() {
-        this.$router.push({name: 'GarbageDetaild'})
+        this.$router.push({ name: 'GarbageDetaild' })
+      },
+      findByBillMonth() {
+        console.log(this.bills.billMonth)
+        findBybillMonth(this.bills.billMonth).then(resp => {
+          this.bills = resp.data
+        })
       }
     }
   }
@@ -165,10 +176,11 @@
     padding-left: 10px;
   }
 
-  td{
+  td {
     padding-top: 12px;
     padding-left: 10px;
   }
+
   tr {
     border-width: 2px;
     border-style: dashed;
