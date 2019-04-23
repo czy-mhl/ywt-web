@@ -9,8 +9,9 @@ export function findByUserId(userId) {
 
 export function findBybillMonth(billMonth) {
   return request({
-    url: '/user/billdetails/' + billMonth,
-    method: 'get'
+    url: '/user/billdetails/',
+    method: 'post',
+    data: billMonth
   })
 }
 
